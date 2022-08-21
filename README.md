@@ -1,2 +1,1 @@
-# triangulation
-A TypeScript triangulation library
+# TypeScript Triangulation Library
