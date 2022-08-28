@@ -158,13 +158,6 @@ class DelaunayTriangulation {
     }
   }
 
-  #addWithLocationRecursive(v: VertexID, a: VertexID, b: VertexID, c: VertexID) {
-    this.#deleteTriangle(a, b, c)
-    this.#dig(v, a, b)
-    this.#dig(v, b, c)
-    this.#dig(v, c, a)
-  }
-
   #deleteTriangle(a: VertexID, b: VertexID, c: VertexID) {
     this.#triangles.get(a)?.delete(b)
     this.#triangles.get(b)?.delete(c)
@@ -175,21 +168,6 @@ class DelaunayTriangulation {
     this.#triangles.get(a)?.set(b, c)
     this.#triangles.get(b)?.set(c, a)
     this.#triangles.get(c)?.set(a, b)
-  }
-
-  #dig(v: VertexID, a: VertexID, b: VertexID) {
-    const x = this.#triangles.get(b)?.get(a)
-    if(x === undefined) {
-      return
-    }
-
-    if(this.triangleCircumdiskContains(v, a, b, x)) {
-      this.#deleteTriangle(a, x, b)
-      this.#dig(v, a, x)
-      this.#dig(v, x, b)
-    } else {
-      this.#addTriangle(v, a, b)
-    }
   }
 
   remove(v: VertexID) {
