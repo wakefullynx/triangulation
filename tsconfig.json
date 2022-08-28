@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "module": "ESNext",
     "allowJs": true,
     "declaration": true,
@@ -8,11 +8,14 @@
     "outDir": "./dist",
     "strict": true,
     "moduleResolution": "node",
+    "esModuleInterop": true    
+    //"isolatedModules": true
   },
   "include": [
-    "src"
+    "src",
+    "index.ts"
   ],
-  "exclude": [
+  /*"exclude": [
     "tests"
-  ]
+  ]*/
 }
