@@ -10,7 +10,6 @@ describe('add', () => {
     const v: Vertices = []
     const getter = vertices(v)
     const t = new DelaunayTriangulation(getter)
-    console.log(t.triangles)
   })
 
   test('single', () => {
@@ -43,13 +42,9 @@ describe('add', () => {
     const getter = vertices(v)
     const t = new DelaunayTriangulation(getter)
     t.add(0)
-    console.log(t.triangles)
     t.add(1)
-    console.log(t.triangles)
     t.add(2)
-    console.log(t.triangles)
     t.add(3)
-    console.log(t.triangles)
     writeTriangulationFile(t, './images/add_four.svg')
   })
 
@@ -58,13 +53,9 @@ describe('add', () => {
     const getter = vertices(v)
     const t = new DelaunayTriangulation(getter)
     t.add(0)
-    console.log(t.triangles)
     t.add(1)
-    console.log(t.triangles)
     t.add(2)
-    console.log(t.triangles)
     t.add(3)
-    console.log(t.triangles)
     writeTriangulationFile(t, './images/add_four2.svg')
   })
 
@@ -77,7 +68,6 @@ describe('add', () => {
     t.add(2)
     t.add(3)
     t.add(4)
-    console.log(t.triangles)
     writeTriangulationFile(t, './images/add_center.svg')
   })
 
@@ -90,7 +80,6 @@ describe('add', () => {
     t.add(2)
     t.add(3)
     t.add(4)
-    console.log(t.triangles)
     writeTriangulationFile(t, './images/add_cross.svg')
   })
 })
@@ -102,26 +91,26 @@ describe('triangleCircumdiskContains', () => {
   const getter = vertices([[0, 0], [1, 0], [0, 1], [2, 2]])
   const t = new DelaunayTriangulation(getter)
   test('#1', () => {
-    expect(t.triangleCircumdiskContains(0, 1, 2, 3)).toBe(false)
+    expect(t.triangleCircumdiskContains(0, 1, 2, getter(3))).toBe(false)
   })
 
   test('#2', () => {
-    expect(t.triangleCircumdiskContains(-1, 2, 1, 3)).toBe(true)
+    expect(t.triangleCircumdiskContains(-1, 2, 1, getter(3))).toBe(true)
   })
 
   test('#3', () => {
-    expect(t.triangleCircumdiskContains(2, -1, 1, 3)).toBe(false)
+    expect(t.triangleCircumdiskContains(2, -1, 1, getter(3))).toBe(false)
   })
 
   test('#4', () => {
-    expect(t.triangleCircumdiskContains(1, 2, -1, 3)).toBe(false)
+    expect(t.triangleCircumdiskContains(1, 2, -1, getter(3))).toBe(false)
   })
 
   test('#5', () => {
-    expect(t.triangleCircumdiskContains(1, -1, 2, 3)).toBe(true)
+    expect(t.triangleCircumdiskContains(1, -1, 2, getter(3))).toBe(true)
   })
 
   test('#6', () => {
-    expect(t.triangleCircumdiskContains(3, -1, 2, 0)).toBe(false)
+    expect(t.triangleCircumdiskContains(3, -1, 2, getter(0))).toBe(false)
   })
 })
