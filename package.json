@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "files": [
-    "dist/**/*",
-    "src/**/*"
+    "dist/**",
+    "src/**"
   ],
   "scripts": {
     "test": "jest --coverage ./test",
