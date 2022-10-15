@@ -2,10 +2,11 @@
   "name": "@wakefullynx/triangulation",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "files": [
     "dist/**",
-    "src/**"
+    "src/**",
+    "index.ts"
   ],
   "scripts": {
     "test": "jest --coverage ./test",
